@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         // inisialisasi database Firebase
         database = FirebaseDatabase
-            .getInstance("https://iot-2025-1d860-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getInstance("https://webesp32-83d35-default-rtdb.asia-southeast1.firebasedatabase.app/")
             .getReference("ESP32")
 
         listenForSensorData()
