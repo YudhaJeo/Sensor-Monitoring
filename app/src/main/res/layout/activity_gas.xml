@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+        android:background="#252525"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="GAS DETECTION"
+        android:textColor="#A1A1A1"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/guideLineTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideLineTop" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/backgroundCard"
+        app:cardCornerRadius="40dp"
+        android:layout_marginTop="20dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="#2C2C2C"
+        android:layout_marginHorizontal="40dp"
+        app:cardElevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondaryHeader"
+        android:textColor="#A1A1A1"
+        android:textSize="22sp"
+        android:text="GAS VALUE"
+        android:fontFamily="@font/inter_semibold"
+        android:translationZ="10dp"
+        app:layout_constraintTop_toTopOf="@id/backgroundCard"
+        app:layout_constraintStart_toStartOf="@id/backgroundCard"
+        app:layout_constraintEnd_toEndOf="@id/backgroundCard"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/valueHalfGauge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="500.0"
+        android:textColor="#A1A1A1"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:translationZ="10dp"
+        android:transformPivotY="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/halfGauge"
+        app:layout_constraintEnd_toEndOf="@id/halfGauge"
+        app:layout_constraintStart_toStartOf="@id/halfGauge"
+        app:layout_constraintTop_toTopOf="@id/halfGauge" />
+
+
+     <com.imsalman.gaugelibrary.Gauge
+        android:id="@+id/halfGauge"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:gaugePointEndColor="#FF7978"
+        app:gaugePointStartColor="#D6FF63"
+        app:gaugePointSize="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="#A1A1A1"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeStartValue="0"
+        app:gaugeEndValue="600"
+        app:gaugeStartAngle="140"
+        app:gaugeSweepAngle="260"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundCard"
+        app:layout_constraintStart_toStartOf="@id/backgroundCard"
+        app:layout_constraintEnd_toEndOf="@id/backgroundCard"
+        app:layout_constraintTop_toBottomOf="@id/secondaryHeader"
+        />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        app:strokeWidth="0dp"
+        app:strokeColor="#00FFC6"
+        app:cardBackgroundColor="#2C2C2C"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backgroundCard"
+        />
+
+    <ImageView
+        android:id="@+id/iconIncicator"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/siaga"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardIndicator"
+        app:layout_constraintEnd_toStartOf="@+id/titleIndicator"
+        app:layout_constraintStart_toStartOf="@id/cardIndicator"
+        app:layout_constraintTop_toTopOf="@id/cardIndicator" />
+
+    <TextView
+        android:id="@+id/titleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Lingkungan Bersih"
+        android:textSize="20sp"
+        android:translationZ="10dp"
+        android:textColor="#A1A1A1"
+        app:layout_constraintBottom_toBottomOf="@id/cardIndicator"
+        app:layout_constraintTop_toTopOf="@id/cardIndicator"
+        app:layout_constraintEnd_toEndOf="@+id/cardIndicator"
+        app:layout_constraintStart_toEndOf="@id/iconIncicator" />
+
+    <com.db.williamchart.view.BarChartView
+        android:id="@+id/barChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="20dp"
+        app:chart_spacing="25dp"
+        app:chart_barsColor="#D6FF63"
+        app:chart_barsBackgroundColor="#2C2C2C"
+        app:chart_barsRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cardIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
